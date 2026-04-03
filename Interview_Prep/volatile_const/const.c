@@ -1,6 +1,36 @@
 #include <stdio.h>
 
+void printData (const int *ptr) {
+    // *ptr =50; // This will cause a compilation error because 'ptr' is a pointer to a constant integer
+    printf("The value is: %d\n", *ptr);
+}
+
+void func1()
+{
+    static int a = 0;
+    a++;
+    printf("%d ",a);
+}
+
+void test1()
+{
+    static int x = 5;
+    x++;
+    printf("%d ",x);
+}
+
+
 void main () {
+
+
+    func1();
+    func1();
+
+    test1();
+    test1();
+
+
+    
     const int a = 10; // 'a' is a constant integer
     // a = 20; // This will cause a compilation error because 'a' is read-only
 
@@ -23,14 +53,10 @@ void main () {
     //constant pointer to a constant integer
     const int c = 30;
     const int *const ptr3 = &c;
-    c =40; // This will cause a compilation error because 'c' is a constant integer
-    *ptr3  = 40; // This will cause a compilation error because 'ptr3' is a pointer to a constant integer
+    // c =40; // This will cause a compilation error because 'c' is a constant integer
+    // *ptr3  = 40; // This will cause a compilation error because 'ptr3' is a pointer to a constant integer
     printf("The value of c is: %d\n", *ptr3);
     printf("The value of ptr3 is: %p\n", ptr3);
-
-
-
-
 
 
 
